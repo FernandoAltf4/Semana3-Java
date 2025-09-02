@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Datos del vehículo
+        String marca, modelo, combustible;
+        int cilindrada, capacidad;
+
+        System.out.print("Ingrese la marca: ");
+        marca = sc.nextLine();
+
+        System.out.print("Ingrese el modelo: ");
+        modelo = sc.nextLine();
+
+        System.out.print("Ingrese la cilindrada (cc): ");
+        cilindrada = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+
+        System.out.print("Ingrese el tipo de combustible: ");
+        combustible = sc.nextLine();
+
+        System.out.print("Ingrese la capacidad en pasajeros: ");
+        capacidad = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+
+        // Mostrar datos del vehículo
+        System.out.println("\n--- Resumen del vehículo ---");
+        System.out.println("La marca que ha ingresado es: " + marca);
+        System.out.println("El modelo que ha ingresado es: " + modelo);
+        System.out.println("La cilindrada que ha ingresado es: " + cilindrada);
+        System.out.println("El tipo de combustible es: " + combustible);
+        System.out.println("Tiene una capacidad de " + capacidad + " pasajeros.");
+
+        // Datos de la compra
+        System.out.print("\nIngrese el total de la compra en CLP: ");
+        double totalCompra = sc.nextDouble();
+
+        System.out.print("Ingrese la distancia al domicilio en km: ");
+        double distancia = sc.nextDouble();
+
+        // Cálculo de despacho según reglas de negocio
+        double costoDespacho;
+
+        if (totalCompra > 50000 && distancia <= 20) {
+            costoDespacho = 0;
+        } else if (totalCompra >= 25000 && totalCompra <= 49999) {
+            costoDespacho = 150 * distancia;
+        } else {
+            costoDespacho = 300 * distancia;
+        }
+
+        double totalPagar = totalCompra + costoDespacho;
+
+        // Mostrar resultado del despacho
+        System.out.println("\n--- Resumen del despacho ---");
+        System.out.println("Total compra: $" + totalCompra);
+        System.out.println("Distancia: " + distancia + " km");
+        System.out.println("Costo de despacho: $" + Math.round(costoDespacho));
+        System.out.println("Total a pagar: $" + Math.round(totalPagar));
+
+        sc.close();
+    }
+}
