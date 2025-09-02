@@ -20,5 +20,13 @@ Y muestra un resumen con los datos ingresados.
 
 Ejecución del programa
 1. Abrir la carpeta del proyecto en la consola:  
-   ```bash
+   bash
    cd Semana3
+Compilar el archivo Main.java:
+
+javac Main.java
+
+
+Ejecutar el programa:
+
+java Main
